@@ -1,0 +1,8 @@
+@keyframes blink {
+    50% { opacity: 0; } /* Makes cursor disappear for a moment */
+  }
+  
+  .animate-blink {
+    display: inline-block;
+    animation: blink 0.8s infinite; /* Repeats the blink animation */
+  }

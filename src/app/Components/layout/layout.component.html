@@ -1,0 +1,34 @@
+<div class="min-h-screen flex flex-col">
+    <!-- Navbar (Fixed Height) -->
+    <div class="min-h-20 bg-gray-300">
+      <div class="flex justify-between  min-h-20 items-center px-10">
+        <div>
+            <p class="text-3xl cursor-pointer">Logo</p>
+        </div>
+        <div class="flex items-center gap-20 min-h-20">
+            <div>
+                <p class="text-xl cursor-pointer">Docs</p>
+            </div>
+            <div>
+                <p class="text-xl cursor-pointer">Contact</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Main Content (Router Outlet) - Dynamic Height -->
+    <div class="w-full">
+      <router-outlet></router-outlet>
+    </div>
+  
+    <!-- Footer (Expands if needed) -->
+    <div class="bg-gray-400 p-4 flex   justify-between px-28 items-center flex-grow">
+      <p class="text-5xl">Bug-Fixer</p>
+       <ul class="flex flex-col justify-center  gap-5 text-xl" >
+        <li  class="cursor-pointer">Installation docs</li>
+        <li class="cursor-pointer">Error Fixer docs</li>
+        <li class="cursor-pointer">Create Folder Structure docs</li>
+        <li></li>
+       </ul>
+    </div>
+  </div>

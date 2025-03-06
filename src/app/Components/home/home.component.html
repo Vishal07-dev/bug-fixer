@@ -1,0 +1,19 @@
+<div class="max-w-full min-h-screen">
+    <div class="max-w-full min-h-screen flex md:gap-10 bg-gray-950 ">
+
+
+        <div [ngClass]="{'hidden':!humberg, 'flex':humberg}" class=" lg:flex hidden rounded-lg rounded-lg-gray-950 lg:w-60 w-40  flex-col gap-20 pt-20 p-5 text-white bg-gray-800 items-center ">
+            <div class="w-full rounded-lg text-center">
+                <a routerLink="/home"><h1 class="lg:text-xl text-[1rem] bg-gray-700 max-w-full p-3 rounded-lg cursor-pointer hover:bg-gray-600">
+                    Installation Guides</h1></a>
+            </div>
+            <div class="w-full rounded-lg text-center">
+                <a routerLink="fixer"><h1 class="lg:text-xl text-[1rem] bg-gray-700 max-w-full p-3 rounded-lg cursor-pointer hover:bg-gray-600"> Fixing Bug </h1></a>
+            </div>
+            <div class="w-full rounded-lg text-center">
+                <a routerLink="cfs"><h1 class="lg:text-xl text-[1rem] bg-gray-700 max-w-full p-3 rounded-lg cursor-pointer hover:bg-gray-600">Creating Folder Structure</h1></a> 
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>
