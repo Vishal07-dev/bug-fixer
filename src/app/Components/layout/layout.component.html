@@ -1,34 +1,56 @@
-<div class="min-h-screen flex flex-col">
-    <!-- Navbar (Fixed Height) -->
-    <div class="min-h-20 bg-gray-300">
-      <div class="flex justify-between  min-h-20 items-center px-10">
-        <div>
-            <p class="text-3xl cursor-pointer">Logo</p>
+<div class="min-h-screen flex flex-col bg-black">
+  <!-- Navbar (Fixed Height) -->
+  <!-- Navbar Container -->
+  <div class="bg-black text-white shadow-xl border-b-2">
+    <div class="flex justify-between items-center px-6 md:px-10 min-h-20">
+
+      <!-- Logo -->
+      <a routerLink="welcome">
+        <div class="flex items-center gap-2">
+          <img src="bug-logo2.png" alt="Bug-Fixer Logo" class="max-w-[60px] md:max-w-[90px]">
+          <p class="text-3xl md:text-4xl font-bold cursor-pointer">BUG-FIXER</p>
         </div>
-        <div class="flex items-center gap-20 min-h-20">
-            <div>
-                <p class="text-xl cursor-pointer">Docs</p>
-            </div>
-            <div>
-                <p class="text-xl cursor-pointer">Contact</p>
-            </div>
-        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-10">
+        <a routerLink="home" routerLinkActive="font-bold underline underline-offset-4 text-white"
+          class="text-lg cursor-pointer transition-all duration-300 hover:opacity-80">
+          Docs
+        </a>
+        <a routerLink="contact" routerLinkActive="font-bold underline underline-offset-4 text-white"
+          class="text-lg cursor-pointer transition-all duration-300 hover:opacity-80">
+          Contact
+        </a>
       </div>
+
+      <!-- Mobile Menu Button (Hamburger) -->
+      <button class="md:hidden text-2xl" (click)="toggleMenu()">
+        ☰
+      </button>
+
     </div>
-  
-    <!-- Main Content (Router Outlet) - Dynamic Height -->
-    <div class="w-full">
-      <router-outlet></router-outlet>
-    </div>
-  
-    <!-- Footer (Expands if needed) -->
-    <div class="bg-gray-400 p-4 flex   justify-between px-28 items-center flex-grow">
-      <p class="text-5xl">Bug-Fixer</p>
-       <ul class="flex flex-col justify-center  gap-5 text-xl" >
-        <li  class="cursor-pointer">Installation docs</li>
-        <li class="cursor-pointer">Error Fixer docs</li>
-        <li class="cursor-pointer">Create Folder Structure docs</li>
-        <li></li>
-       </ul>
+
+    <!-- Mobile Dropdown Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden flex flex-col items-center gap-4 py-4 border-t border-gray-700 bg-black">
+      <a routerLink="home" routerLinkActive="font-bold underline underline-offset-4 text-white"
+        class="text-lg cursor-pointer transition-all duration-300 hover:opacity-80" (click)="closeMenu()">
+        Docs
+      </a>
+      <a routerLink="contact" routerLinkActive="font-bold underline underline-offset-4 text-white"
+        class="text-lg cursor-pointer transition-all duration-300 hover:opacity-80" (click)="closeMenu()">
+        Contact
+      </a>
     </div>
   </div>
+
+
+
+  <!-- Main Content (Router Outlet) - Dynamic Height -->
+  <div class="w-full">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer (Expands if needed) -->
+
+</div>

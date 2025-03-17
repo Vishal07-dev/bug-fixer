@@ -1,12 +1,20 @@
-<div class="bg-gray-800 flex flex-col gap-10 justify-center items-center min-h-80  my-auto ">
-  <div class="flex">
-    <h1 class="text-gray-300 text-5xl font-bold font-serif   rounded-xl" >
-      Bug-Fixer Docs
-    </h1> 
-  
+<div class="bg-[#3e3e3e] flex flex-col gap-10 py-32 px-10 items-center min-h-screen">
+  <div class="flex flex-col gap-8 text-center max-w-3xl">
+    <h1 class="text-white text-3xl sm:text-6xl font-extrabold font-serif tracking-wide drop-shadow-lg">
+      Welcome to
+      <span class="text-[#ffffff] drop-shadow-md">Bug-Fixer</span>
+    </h1>
+    <p class="text-xl sm:text-2xl text-gray-300 mt-4 font-medium leading-relaxed">
+      Your <span class="text-white font-bold">go-to solution</span> for identifying and fixing code errors effortlessly!
+      We help you <span class="text-white font-bold">debug and optimize</span> your projects for smooth performance.
+      Say <span class="text-red-400 font-extrabold">goodbye to bugs</span> and keep your code running
+      <span class="text-red-400 font-bold">flawlessly</span>!
+    </p>
   </div>
   <div>
-    <button class="max-w-md  p-3 rounded-xl bg-blue-900 text-white hover:bg-blue-800 cursor-pointer " (click)="onClick()">Get Started </button>
-  </div> 
+    <button (click)="onClick()" class="px-6 py-3 mt-4 rounded-xl bg-white text-black text-lg font-semibold shadow-lg transition-all 
+      duration-300 hover:bg-[#090909] hover:text-white hover:shadow-black hover:scale-110">
+      Get Started
+    </button>
   </div>
- 
+</div>
