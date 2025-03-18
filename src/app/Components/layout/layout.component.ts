@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,8 +8,14 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements AfterViewInit {
   isMenuOpen = false;
+
+  ngAfterViewInit(): void {
+    this.toggleMenu()
+
+    this.closeMenu()
+  }
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

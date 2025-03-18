@@ -34,7 +34,6 @@ export class GoogleDataServiceService {
 
     // Store email (optional: use localStorage or pass to a state management service)
     localStorage.setItem('userEmail', payload.email);
-    location.reload()
     this.router.navigateByUrl('welcome')
 
 
