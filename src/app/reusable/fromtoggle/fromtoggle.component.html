@@ -1,7 +1,5 @@
 @for (item of togglevalue; track $index) {
-    <button 
-    (click)="OnclickGetFromValue(item) " 
-    class="w-full p-5 rounded-lg " [ngClass]="currantvalue==item?'bg-gray-500 text-white':'bg-gray-200 text-green-950'">{{item}}</button>
+<button (click)="OnclickGetFromValue(item) " class="w-full p-5 rounded-lg "
+    [ngClass]="currantvalue==item?'bg-black text-white':'bg-gray-200 text-green-950'">{{item}}</button>
 
 }
-

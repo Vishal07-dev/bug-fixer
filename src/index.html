@@ -1,15 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>BugFixer</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-<!-- Add this in the <head> -->
+  <meta charset="utf-8" />
+  <title>SignInWithGoogle</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+  <script>
+    function decodeJWTToken(token) {
+      return JSON.parse(atob(token.split(".")[1]));
+    }
+    function handleCredentialResponse(response) {
+      // to decode the credential response.
+      const responsePayload = decodeJWTToken(response.credential);
+      sessionStorage.setItem("loggedInUser", JSON.stringify(responsePayload));
+      window.location.href = "welcome";
+    }
+    function handleSignout() {
+      google.accounts.id.disableAutoSelect();
+    }    
+  </script>
 </head>
+
 <body>
   <app-root></app-root>
 </body>
+
 </html>
