@@ -17,47 +17,31 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [authGuard] // ✅ Prevent logged-in users from accessing login
     },
-
     {
         path: '',
         component: LayoutComponent,
-        canActivate: [authGuard],
+        canActivate: [authGuard], // ✅ Protect the entire layout
         children: [
             {
                 path: 'welcome',
-                component: WelcomePageComponent
+                component: WelcomePageComponent // ✅ Keep `/welcome` inside `LayoutComponent`
             },
             {
                 path: 'home',
                 component: HomeComponent,
-                canActivate: [authGuard],
-                children: [{
-                    path: '',
-                    component: InstallationGuideComponent,
-
-                },
-                {
-                    path: 'fixer',
-                    component: FixingBugComponent,
-
-                },
-                {
-                    path: 'cfs',
-                    component: CfsComponent,
-
-                }]
-
+                children: [
+                    { path: '', component: InstallationGuideComponent },
+                    { path: 'fixer', component: FixingBugComponent },
+                    { path: 'cfs', component: CfsComponent }
+                ]
             },
             {
                 path: 'contact',
                 component: ContactPageComponent
             }
-
-        ],
-
-    },
-
-
+        ]
+    }
 ];
