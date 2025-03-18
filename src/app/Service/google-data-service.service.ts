@@ -8,10 +8,13 @@ declare const google: any;
 })
 export class GoogleDataServiceService {
   router = inject(Router);
+  private scriptLoaded = false; // Prevent multiple script loads
 
   constructor() { }
 
-  initGoogleSSo() {
+  async initGoogleSSo() {
+    await this.loadGoogleScript(); // Ensure script is loaded before initializing
+
     google?.accounts.id.initialize({
       client_id: '493225894715-er35fcpu8grrnu62pcrbab1j92g6hovl.apps.googleusercontent.com',
       callback: this.handleCredentialResponse.bind(this),
@@ -25,19 +28,32 @@ export class GoogleDataServiceService {
     });
   }
 
-
   handleCredentialResponse(response: any) {
     console.log('Encoded JWT ID token:', response.credential);
-    // Decode the JWT token to extract user details
     const payload = JSON.parse(atob(response.credential.split('.')[1]));
     console.log('User Email:', payload.email);
 
     // Store email (optional: use localStorage or pass to a state management service)
     localStorage.setItem('userEmail', payload.email);
-    this.router.navigateByUrl('welcome')
-
 
     // Redirect to welcome page
+    this.router.navigateByUrl('welcome');
+  }
 
+  private loadGoogleScript(): Promise<void> {
+    return new Promise((resolve) => {
+      if (this.scriptLoaded) {
+        return resolve(); // ✅ Script is already loaded, no need to reload
+      }
+
+      const script = document.createElement('script');
+      script.src = 'https://accounts.google.com/gsi/client';
+      script.id = 'google-js';
+      script.onload = () => {
+        this.scriptLoaded = true;
+        resolve();
+      };
+      document.body.appendChild(script);
+    });
   }
 }
