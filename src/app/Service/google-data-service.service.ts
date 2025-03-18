@@ -28,7 +28,6 @@ export class GoogleDataServiceService {
 
   handleCredentialResponse(response: any) {
     console.log('Encoded JWT ID token:', response.credential);
-    this.router.navigateByUrl('welcome')
     // Decode the JWT token to extract user details
     const payload = JSON.parse(atob(response.credential.split('.')[1]));
     console.log('User Email:', payload.email);
@@ -36,6 +35,8 @@ export class GoogleDataServiceService {
     // Store email (optional: use localStorage or pass to a state management service)
     localStorage.setItem('userEmail', payload.email);
     location.reload()
+    this.router.navigateByUrl('welcome')
+
 
     // Redirect to welcome page
 
