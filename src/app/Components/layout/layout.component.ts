@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class LayoutComponent implements AfterViewInit {
   isMenuOpen = false;
-
+  
   ngAfterViewInit(): void {
     this.isMenuOpen = false
     this.toggleMenu()
