@@ -60,7 +60,9 @@ export class LoginComponent implements AfterViewInit {
 
   handleCredentialResponse(response: any) {
     console.log('Google credential received:', response.credential);
-    this.userEmail = 'example@email.com'; // You can decode JWT here
+    const payload = JSON.parse(atob(response.credential.split('.')[1]));
+    this.userEmail = payload.email; // You can decode JWT here
+    localStorage.setItem('userEmail', payload.email);
     this.toaster.success('Login Successful!');
     this.isLoginModalOpen = false;
     this.router.navigate(['/welcome']);
