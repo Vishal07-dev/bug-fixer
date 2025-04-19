@@ -63,7 +63,12 @@ export class LoginComponent implements AfterViewInit {
     const payload = JSON.parse(atob(response.credential.split('.')[1]));
     this.userEmail = payload.email; // You can decode JWT here
     localStorage.setItem('userEmail', payload.email);
-    this.toaster.success('Login Successful!');
+    this.toaster.success('Login Successful!', '', {
+      toastClass: 'ngx-toastr custom-toast',
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right', // or your preferred position
+    });
+    
     this.isLoginModalOpen = false;
     this.router.navigate(['/welcome']);
   }
