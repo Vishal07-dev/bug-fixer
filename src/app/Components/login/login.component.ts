@@ -36,7 +36,7 @@ export class LoginComponent implements AfterViewInit {
       if (this.isLoginModalOpen && this.googleButton) {
         this.renderGoogleSignIn();
       }
-    }, 100);
+    }, 50);
   }
 
   ngAfterViewInit(): void {
@@ -47,7 +47,7 @@ export class LoginComponent implements AfterViewInit {
   renderGoogleSignIn() {
     if ((window as any).google && this.googleButton.nativeElement.childElementCount === 0) {
       (window as any).google.accounts.id.initialize({
-        client_id: 'YOUR_GOOGLE_CLIENT_ID',
+        client_id: '493225894715-er35fcpu8grrnu62pcrbab1j92g6hovl.apps.googleusercontent.com',
         callback: (response: any) => this.handleCredentialResponse(response),
       });
 
