@@ -18,12 +18,12 @@ export const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent,
-        // canActivate: [authGuard] // ✅ Prevent logged-in users from accessing login
+        canActivate: [authGuard] // ✅ Prevent logged-in users from accessing login
     },
     {
         path: '',
         component: LayoutComponent,
-        // canActivate: [authGuard], // ✅ Protect the entire layout
+        canActivate: [authGuard], // ✅ Protect the entire layout
         children: [
             {
                 path: 'welcome',
