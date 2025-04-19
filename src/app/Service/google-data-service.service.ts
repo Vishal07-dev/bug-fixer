@@ -62,7 +62,7 @@ export class GoogleDataServiceService {
       script.src = 'https://accounts.google.com/gsi/client';
       script.async = true;
       script.defer = true;
-      script.id = 'google-login';
+      script.id = 'google-js';
       document.head.appendChild(script);
     }
   }
