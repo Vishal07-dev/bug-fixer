@@ -16,7 +16,7 @@ export class GoogleDataServiceService {
     await this.loadGoogleScript(); // Ensure script is loaded before initializing
 
     google?.accounts.id.initialize({
-      client_id: '493225894715-er35fcpu8grrnu62pcrbab1j92g6hovl.apps.googleusercontent.com',
+      client_id: '493225894715-gm4hddie2t2d2ttb7qmsvhl3k43atrrh.apps.googleusercontent.com',
       callback: this.handleCredentialResponse.bind(this),
       ux_mode: 'popup', // ✅ Force popup mode to avoid COOP issues
     });
