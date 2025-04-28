@@ -8,6 +8,7 @@ import { InstallationGuideComponent } from './Components/installation-guide/inst
 import { FixingBugComponent } from './Components/fixing-bug/fixing-bug.component';
 import { CfsComponent } from './Components/cfs/cfs.component';
 import { ContactPageComponent } from './Components/contact-page/contact-page.component';
+import { OthercomandsComponent } from './Components/otherComands/othercomands/othercomands.component';
 
 export const routes: Routes = [
     {
@@ -35,7 +36,8 @@ export const routes: Routes = [
                 children: [
                     { path: '', component: InstallationGuideComponent },
                     { path: 'fixer', component: FixingBugComponent },
-                    { path: 'cfs', component: CfsComponent }
+                    { path: 'cfs', component: CfsComponent },
+                    { path: 'otherCommands', component:OthercomandsComponent }
                 ]
             },
             {
